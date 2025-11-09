@@ -1,0 +1,10 @@
+# macOS artifacts
+.DS_Store
+
+# IDE settings
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
