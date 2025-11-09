@@ -1,10 +1,26 @@
 ## BFS Path Search
 
-This project illustrates a breadth-first (uniform-cost) traversal that finds the minimum-cost route from node `A` to node `P` in a weighted directed graph. The implementation avoids function definitions to keep the logic inline and easy to follow.
+This project illustrates a breadth-first (uniform-cost) traversal that finds the minimum-cost route from node `A` to node `P` in a weighted directed graph. The implementation keeps all logic inline (no function definitions) to match the original task constraints.
+
+### Problem Statement
+
+> Given the graph below with edge costs, find the minimum-cost path from `A` to `P`.
+
+```
+A: B (3), C (2)
+B: D (4), E (6)
+C: F (5), G (1)
+D: H (2)
+E: —
+F: —
+G: P (3)
+H: —
+P: —
+```
 
 ### Contents
 
-- `bfs.py` – builds the example graph, performs the uniform-cost search with `heapq`, prints the optimal path, and documents complexity analysis.
+- `bfs.py` – builds the example graph, executes the uniform-cost search using `heapq`, prints the optimal path, and notes complexity results.
 - `.gitignore` – excludes editor, system, and Python bytecode artifacts.
 
 ### Running the Script
@@ -13,15 +29,19 @@ This project illustrates a breadth-first (uniform-cost) traversal that finds the
 python bfs.py
 ```
 
-The script reports either the optimal path (with total cost) or indicates that no route exists.
+Example output:
+
+```
+Optimal path: A -> C -> G -> P | Cost: 6
+```
 
 ### Algorithm Overview
 
-- **Search strategy:** Uniform-cost search using a binary heap to explore paths in order of cumulative cost.
-- **Output:** Path nodes joined with arrows plus the accumulated cost.
-- **Complexity:** Time `O(E log V)`, Space `O(V)`, where `V` is the number of vertices and `E` the number of edges.
+- **Search strategy:** Uniform-cost search (priority-queue-based BFS) that expands paths in ascending order of accumulated edge cost.
+- **Time complexity:** `O(E log V)` – each edge can enter the heap once, and every heap operation costs `log V`.
+- **Space complexity:** `O(V)` – the priority queue and `best_cost` dictionary hold at most one entry per vertex.
 
-### Project Goal
+### Repository
 
-Designed for the repository [jahidbappi/BFS-path-search](https://github.com/jahidbappi/BFS-path-search) as a reference implementation of cost-aware BFS traversal.
+Designed for the GitHub project [jahidbappi/BFS-path-search](https://github.com/jahidbappi/BFS-path-search) as a compact reference implementation of cost-aware BFS traversal.
 
